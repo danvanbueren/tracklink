@@ -1,7 +1,7 @@
 import {Box, Button, IconButton, TextField, Typography} from "@mui/material";
 import * as React from "react";
 import SettingsIcon from '@mui/icons-material/Settings';
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {useRoute} from "@/context/RouteContext";
 

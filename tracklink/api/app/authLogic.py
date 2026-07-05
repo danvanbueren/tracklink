@@ -12,7 +12,7 @@ from typing import Optional
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
-from passlib.context import CryptContext
+import bcrypt
 import json
 
 from app.config_database import get_db
@@ -32,14 +32,13 @@ SECRET_KEY = "dd91a87bb8b2cd5478d84316c6813cb10096598e5a0ec2cf48c7ff8e051451ae"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
 def get_password_hash(plain_password):
-    return pwd_context.hash(plain_password)
+    return bcrypt.hashpw(plain_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
 def update_user_last_active(pkey_id: int):
     try:

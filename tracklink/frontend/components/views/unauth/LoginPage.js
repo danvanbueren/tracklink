@@ -4,7 +4,7 @@ import * as React from 'react';
 import {useEffect, useState} from 'react';
 
 import {Box, Button, Card, CardContent, CircularProgress, TextField, Typography} from "@mui/material";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { css, keyframes } from "@emotion/react";
 

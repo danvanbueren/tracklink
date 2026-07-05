@@ -14,7 +14,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 import {useState} from "react";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import BigTrackButton from "@/components/elements/BigTrackButton";
 import {useRoute} from "@/context/RouteContext";
 import SocialActivityCard from "@/components/elements/SocialActivityCard";
