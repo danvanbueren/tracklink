@@ -1,6 +1,6 @@
 import {Box, Button, Card, CardMedia, Stack, Typography} from "@mui/material";
 import * as React from "react";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import {useRoute} from "@/context/RouteContext";
 
 export default function BigTrackButton({trackUUID}) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, Card, CardContent, Typography} from "@mui/material";
 import {useRoute} from "@/context/RouteContext";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import ImageLoader from "@/components/elements/generic/ImageLoader";
 
 

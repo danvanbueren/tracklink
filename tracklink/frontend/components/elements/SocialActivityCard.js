@@ -1,6 +1,6 @@
 import {useRoute} from "@/context/RouteContext";
 import {Box, Card, Divider, Stack, Typography} from "@mui/material";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import * as React from "react";
 import StaticUserAvatar from "@/components/elements/StaticUserAvatar";
 import PlayImmediatelyButton from "@/components/elements/audioControls/PlayImmediatelyButton";

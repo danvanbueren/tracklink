@@ -1,6 +1,6 @@
 import {Box, IconButton, Stack} from "@mui/material";
 import * as React from "react";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import NowPlayingButton from "@/components/elements/audioControls/NowPlayingButton";
 import {useAudioPlayer} from "@/context/AudioPlayerContext";

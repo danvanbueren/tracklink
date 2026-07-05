@@ -1,17 +1,14 @@
-fastapi
-uvicorn
-pydantic
-pydantic[email]
+fastapi>=0.115.0
+uvicorn>=0.30.0
+pydantic>=2.10.0
+pydantic[email]>=2.10.0
 
-sqlalchemy
-databases
+sqlalchemy>=2.0.0
 
-python-jose[cryptography]
-passlib[bcrypt]==1.7.4
-bcrypt==3.2.2
-PyJWT
+python-jose[cryptography]>=3.3.0
+bcrypt>=4.2.0
 
-python-decouple
-python-multipart
+python-decouple>=3.8
+python-multipart>=0.0.9
 
-psycopg2-binary
+psycopg2-binary>=2.9.9
