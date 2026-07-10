@@ -1,52 +1,35 @@
-'use client';
-
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import {Box, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 import * as React from "react";
-import {GlobalStyleProvider} from "@/context/GlobalStyleContext";
-import ViewportOuterWrapper from "@/components/containers/ViewportOuterWrapper";
-import {RouteProvider} from "@/context/RouteContext";
-import {AudioPlayerProvider} from "@/context/AudioPlayerContext";
+import ClientLayout from "./ClientLayout";
 
-// Implement toggleable dark mode
-const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
+export const metadata = {
+    title: 'Tracklink',
+    description: 'Tracklink',
+    icons: {
+        icon: [
+            { url: '/icon/icon0.svg', type: 'image/svg+xml' },
+            { url: '/icon/icon1.png', type: 'image/png' },
+        ],
+        shortcut: '/icon/favicon.ico',
+        apple: '/icon/apple-icon.png',
     },
-});
+    manifest: '/icon/manifest.json',
+    appleWebApp: {
+        title: 'Tracklink',
+    },
+};
 
 export default function RootLayout({ children }) {
-
     return (
         <html lang="en">
         <head>
-            <title>Tracklink</title>
-            <meta name='description' content='Tracklink'/>
+            <meta name="apple-mobile-web-app-title" content="Tracklink" />
         </head>
         <body>
-        <ThemeProvider theme={darkTheme}>
-            <CssBaseline/>
-            <Box
-                sx={{
-                    minWidth: '100vw',
-                    maxWidth: '100vw',
-
-                    minHeight: '100vh',
-                    maxHeight: '100vh',
-                }}
-            >
-                <GlobalStyleProvider>
-                    <RouteProvider>
-                        <AudioPlayerProvider>
-                            <ViewportOuterWrapper />
-                        </AudioPlayerProvider>
-                    </RouteProvider>
-                </GlobalStyleProvider>
-            </Box>
-        </ThemeProvider>
+            <ClientLayout>{children}</ClientLayout>
         </body>
         </html>
     );
