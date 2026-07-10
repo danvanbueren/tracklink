@@ -1,13 +1,19 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import * as React from "react";
-import ClientLayout from "./ClientLayout";
+import packageJson from '../package.json'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import * as React from "react"
+import ClientLayout from "./ClientLayout"
+
+const PROJECT_NAME = packageJson.name
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 
 export const metadata = {
-    title: 'Tracklink',
-    description: 'Tracklink',
+    title: PROJECT_NAME,
+    description: `${PROJECT_NAME} - A project management solution for music artists, producers and engineers.`,
     icons: {
         icon: [
             { url: '/icon/icon0.svg', type: 'image/svg+xml' },
@@ -18,19 +24,16 @@ export const metadata = {
     },
     manifest: '/icon/manifest.json',
     appleWebApp: {
-        title: 'Tracklink',
+        title: PROJECT_NAME,
     },
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-        <head>
-            <meta name="apple-mobile-web-app-title" content="Tracklink" />
-        </head>
-        <body>
-            <ClientLayout>{children}</ClientLayout>
-        </body>
+            <body>
+                <ClientLayout>{children}</ClientLayout>
+            </body>
         </html>
     );
 }
