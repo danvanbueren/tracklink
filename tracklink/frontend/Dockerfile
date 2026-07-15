@@ -1,12 +1,12 @@
-FROM node:18-alpine
+FROM oven/bun:1-alpine
 
 LABEL authors="danvanbueren"
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json bun.lock ./
 
-RUN npm install
+RUN bun install --frozen-lockfile
 
 ARG REACT_APP_API_URL
 
@@ -14,20 +14,20 @@ ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 COPY . .
 
-CMD ["npm", "run", "dev"]
+CMD ["bun", "run", "dev"]
 
 
 ## TODO: For production deployment
 ## Build React app with injected env variables
-#FROM node:16-alpine as build
+#FROM oven/bun:1-alpine as build
 #WORKDIR /app
-#COPY package*.json ./
-#RUN npm install
+#COPY package.json bun.lock ./
+#RUN bun install --frozen-lockfile
 ## Pass the build argument for the API URL
 #ARG REACT_APP_API_URL
 #ENV REACT_APP_API_URL=$REACT_APP_API_URL
 #COPY . .
-#RUN npm run build
+#RUN bun run build
 ## Serve React app
 #FROM nginx:alpine
 #COPY --from=build /app/build /usr/share/nginx/html

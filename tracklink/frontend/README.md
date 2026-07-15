@@ -7,13 +7,13 @@ This project is built atop [React](https://react.dev/reference/react), [NextJS](
 First, install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 Then, run the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
