@@ -113,10 +113,15 @@ export const AudioPlayerProvider = ({ children }) => {
 
     // Update ref source from state
     useEffect(() => {
-        ref.current.src = currentTrackSrc;
-        ref.current.load();
-        if (playing) {
-            ref.current.play();
+        if (currentTrackSrc) {
+            ref.current.src = currentTrackSrc;
+            ref.current.load();
+            if (playing) {
+                ref.current.play();
+            }
+        } else {
+            ref.current.removeAttribute('src');
+            ref.current.load();
         }
     }, [currentTrackSrc])
 

@@ -15,6 +15,16 @@ const darkTheme = createTheme({
 });
 
 export default function ClientLayout({ children }) {
+    const [isHydrated, setIsHydrated] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsHydrated(true);
+    }, []);
+
+    if (!isHydrated) {
+        return null;
+    }
+
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline/>
