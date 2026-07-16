@@ -1,11 +1,12 @@
 'use client';
 
-import {Box, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import * as React from "react";
-import {GlobalStyleProvider} from "@/context/GlobalStyleContext";
+import { GlobalStyleProvider } from "@/context/GlobalStyleContext";
 import ViewportOuterWrapper from "@/components/containers/ViewportOuterWrapper";
-import {RouteProvider} from "@/context/RouteContext";
-import {AudioPlayerProvider} from "@/context/AudioPlayerContext";
+import { RouteProvider } from "@/context/RouteContext";
+import { AudioPlayerProvider } from "@/context/AudioPlayerContext";
+import { Analytics } from "@vercel/analytics/next";
 
 // Implement toggleable dark mode
 const darkTheme = createTheme({
@@ -27,7 +28,7 @@ export default function ClientLayout({ children }) {
 
     return (
         <ThemeProvider theme={darkTheme}>
-            <CssBaseline/>
+            <CssBaseline />
             <Box
                 sx={{
                     minWidth: '100vw',
@@ -46,6 +47,7 @@ export default function ClientLayout({ children }) {
                     </RouteProvider>
                 </GlobalStyleProvider>
             </Box>
+            <Analytics />
         </ThemeProvider>
     );
 }
