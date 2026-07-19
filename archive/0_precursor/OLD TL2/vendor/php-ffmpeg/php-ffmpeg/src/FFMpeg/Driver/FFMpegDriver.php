@@ -23,6 +23,8 @@ class FFMpegDriver extends AbstractBinary
 {
     /**
      * {@inheritdoc}
+     *
+     * @return string
      */
     public function getName()
     {
@@ -37,13 +39,13 @@ class FFMpegDriver extends AbstractBinary
      *
      * @return FFMpegDriver
      */
-    public static function create(LoggerInterface $logger = null, $configuration = array())
+    public static function create(?LoggerInterface $logger = null, $configuration = [])
     {
         if (!$configuration instanceof ConfigurationInterface) {
             $configuration = new Configuration($configuration);
         }
 
-        $binaries = $configuration->get('ffmpeg.binaries', array('avconv', 'ffmpeg'));
+        $binaries = $configuration->get('ffmpeg.binaries', ['avconv', 'ffmpeg']);
 
         if (!$configuration->has('timeout')) {
             $configuration->set('timeout', 300);
@@ -60,6 +62,7 @@ class FFMpegDriver extends AbstractBinary
      * Get ffmpeg version.
      *
      * @return string
+     *
      * @throws RuntimeException
      */
     public function getVersion()
